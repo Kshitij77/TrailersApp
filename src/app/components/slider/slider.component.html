@@ -1,0 +1,16 @@
+<h2>{{title}}</h2>
+
+<div class="movie">
+    <div class="movie_images">
+        <div class="thumbnails">
+            <ngx-slick-carousel [config]="sliderConfig" class="carousel">
+                <div class="slick_item" *ngFor=" let i of movies.results" ngxSlickItem>
+                    <img src="https://image.tmdb.org/t/p/w200{{i?.poster_path}}" alt="{{i.title}}" (click)="trailer(i)">
+                </div>
+            </ngx-slick-carousel>
+        </div>
+    </div>
+    <div class="youtube" *ngIf="clicked">
+        <youtube-player videoId={{trailerUrl}} [height]="ytHeight" [width]= "ytWidth" [startSeconds]="0"></youtube-player>
+    </div>
+</div>
