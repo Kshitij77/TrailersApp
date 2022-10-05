@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="header">
+    <div class="header_banner" [ngStyle]="{
+      'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url('+headerBG+')'
+    }">
+      <!-- <h2>{{trending?.results[0].title}}</h2> -->
+      <h2>{{headerTitle}}</h2>
+      <div class="header_buttons">
+        <button class="play_button">
+          <mat-icon>arrow_right</mat-icon>
+          <span class="play_button_span">Play</span>
+        </button>
+        <button class="more_button">
+          <mat-icon>info</mat-icon>
+          <span class="more_button_span">More info</span>
+        </button>
+      </div>
+      <p>{{headerDescription}}</p>
+    </div>
+
+    <!-- <div class="header_main" id="sticky_header" [class.sticky]="sticky" #stickyHeader> -->
+    <div class="header_main" id="sticky_header"
+      [ngStyle]="{'background-color': sticky ? '#0D0D0D' : '', 'z-index': sticky ? '100' : '10'}" #stickyHeader>
+      <div class="header_left">
+        <a routerLink="/">
+          <img src="assets/netflix.svg" alt="logo">
+        </a>
+        <ul>
+          <li class="active"><a href="#">Home</a></li>
+          <li class="watchLater"><a href="#">Watch Later</a></li>
+          <li class="fav"><a href="#">Favorites</a></li>
+          <li class="myList"><a href="#">My List</a></li>
+        </ul>
+      </div>
+      <div class="header_right">
+        <ul>
+          <li class="search"><a href="#">
+              <mat-icon>search</mat-icon>
+            </a></li>
+          <li class="card"><a href="#">
+              <mat-icon>card_giftcard</mat-icon>
+            </a></li>
+          <li class="card"><a href="#">
+              <mat-icon>notifications</mat-icon>
+            </a></li>
+          <li class="pic"><img src="assets/mypic.jpg" alt="avatar"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="body_rows">
+    <app-slider class="title" title="Trending" [movies]="trending"></app-slider>
+    <app-slider title="Top Rated" [movies]="topRated"></app-slider>
+    <app-slider title="Now Playing" [movies]="nowPlaying"></app-slider>
+    <app-slider title="Originals" [movies]="originals"></app-slider>
+    <app-slider title="Popular" [movies]="popular"></app-slider>
+    <app-slider title="Action" [movies]="action"></app-slider>
+    <app-slider title="Romantic" [movies]="romantic"></app-slider>
+    <app-slider title="Comedy" [movies]="comedy"></app-slider>
+  </div>
+</div>
